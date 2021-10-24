@@ -39,9 +39,6 @@ class UpdateListView(ListView):
 
         return context
 
-    def get_success_url(self):
-        return reverse('updates:update-detail')
-
 
 class UpdateDetailView(DetailView):
 
