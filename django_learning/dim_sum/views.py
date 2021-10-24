@@ -51,3 +51,12 @@ def render_initial_data(request):
     context = {'form': form}
 
     return render(request, "dim_sum/add_item.html", context)
+
+
+def dimsum_lookup_view(request, id):
+    obj = DimSumItem.objects.get(id=id)
+    context = {
+        "object": obj
+    }
+
+    return render(request, "dim_sum/dimsum_lookup.html", context)

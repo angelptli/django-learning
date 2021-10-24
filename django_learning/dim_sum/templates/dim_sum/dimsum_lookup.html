@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ obj.item_name }}</h1><br>
+Description:<br>{{ obj.description }}<br>
+Average Price:<br>{{ obj.normal_price }}
+History:<br>{{ obj.history }}
+Tasty: {{ obj.tasty }}
+
+{% endblock %}
