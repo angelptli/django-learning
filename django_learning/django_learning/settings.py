@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dim_sum',
+    'pages',
 ]
 
 MIDDLEWARE = [
