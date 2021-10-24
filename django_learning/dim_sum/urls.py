@@ -13,11 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . views import dimsum_detail_view, add_item_view
 
+app_name = 'dim_sum'
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('dim_sum/', include('dim_sum.urls')),
-    path('', include('pages.urls')),
+    path('add_item/', add_item_view, name='add_item_view'),
+    path('detail/', dimsum_detail_view, name="dimsum_detail_view"),
+    # path('<int:id>/', dimsum_lookup_view, name='dimsum_lookup')
 ]

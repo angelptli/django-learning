@@ -12,6 +12,6 @@ class DimSumItem(models.Model):
     def __str__(self):
         return str.title(self.item_name)
 
-    def get_absolute_url(self):
-        # return f"/dimsum/{self.id}/"
-        return reverse("dim_sum_detail", kwargs={"id": self.id})
+    # def get_absolute_url(self):
+    #     # return f"/dimsum/{self.id}/"
+    #     return reverse("dim_sum:dimsum_detail_view", kwarg

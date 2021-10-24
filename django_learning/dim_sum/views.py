@@ -81,3 +81,10 @@ def add_item_view(request):
 #     }
 
 #     return render(request, "dim_sum/dimsum_lookup.html", context)
+
+
+def dimsum_detail_view(request, *args, **kwargs):
+    queryset = DimSumItem.objects.all()
+    context = {'queryset': queryset}
+
+    return render(request, "dim_sum/dimsum_detail.html", context)
