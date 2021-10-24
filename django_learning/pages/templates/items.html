@@ -2,6 +2,8 @@
 
 {% block content %}
 <h1>Dim Sum Collection</h1>
-{% endblock %}
+{% for item in dimsum_list %}
+  {{ item }}<br>
+{% endfor %}
 
-{{ request.user }}
+{% endblock %}

@@ -12,8 +12,15 @@ def contact_view(request, *args, **kwargs):
 
 
 def items_view(request, *args, **kwargs):
-    return render(request, "items.html", {})
+    my_context = {
+        "dimsum_list": ["shumai", "sonton"]
+    }
+    return render(request, "items.html", my_context)
 
 
 def contribute_view(request, *args, **kwargs):
-    return render(request, "contribute.html", {})
+    my_context = {
+        "contributed": "Yes",
+        "num_items": 111
+    }
+    return render(request, "contribute.html", my_context)
