@@ -49,7 +49,7 @@ class UpdateDetailView(DetailView):
 
 class UpdateUpdateView(UpdateView):
 
-    """Display a list of updates."""
+    """Updates an object from the create view."""
 
     template_name = 'updates/ownerupdate_create.html'
     form_class = UpdateCreateForm
@@ -65,3 +65,19 @@ class UpdateUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('updates:update-detail')
+
+
+class UpdateDeleteView(DeleteView):
+
+    """Delete an update."""
+
+    template_name = 'updates/ownerupdate_delete.html'
+    queryset = OwnerUpdate.objects.all()
+
+    def get_object(self):
+        """Get an the object that it is deleting."""
+        id = self.kwargs.get("id")
+        return get_object_or_404(OwnerUpdate, id=id)
+
+    def get_success_url(self):
+        return reverse('updates:update-list')

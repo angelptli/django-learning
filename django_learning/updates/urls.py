@@ -18,7 +18,8 @@ from . views import (
     UpdateCreateView,
     UpdateListView,
     UpdateDetailView,
-    UpdateUpdateView
+    UpdateUpdateView,
+    UpdateDeleteView
 )
 
 app_name = 'updates'
@@ -28,4 +29,5 @@ urlpatterns = [
     path('create/', UpdateCreateView.as_view(), name='update-create'),
     path('<int:id>/', UpdateDetailView.as_view(), name='update-detail'),
     path('<int:id>/update/', UpdateUpdateView.as_view(), name='update-update'),
+    path('<int:id>/update/delete/', UpdateDeleteView.as_view(), name='update-delete'),
 ]
