@@ -17,13 +17,15 @@ from django.urls import path
 from . views import (
     UpdateCreateView,
     UpdateListView,
-    UpdateDetailView
+    UpdateDetailView,
+    UpdateUpdateView
 )
 
 app_name = 'updates'
 
 urlpatterns = [
     path('', UpdateListView.as_view(), name='update-list'),
-    path('create', UpdateCreateView.as_view(), name='update-create'),
-    path('<int:id>', UpdateDetailView.as_view(), name='update-detail'),
+    path('create/', UpdateCreateView.as_view(), name='update-create'),
+    path('<int:id>/', UpdateDetailView.as_view(), name='update-detail'),
+    path('<int:id>/update/', UpdateUpdateView.as_view(), name='update-update'),
 ]

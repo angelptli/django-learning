@@ -45,3 +45,23 @@ class UpdateDetailView(DetailView):
         keyword for this view is pk."""
         id = self.kwargs.get("id")
         return get_object_or_404(OwnerUpdate, id=id)
+
+
+class UpdateUpdateView(UpdateView):
+
+    """Display a list of updates."""
+
+    template_name = 'updates/ownerupdate_create.html'
+    form_class = UpdateCreateForm
+    queryset = OwnerUpdate.objects.all()
+
+    def get_object(self):
+        """Get an instance of the object it is updating."""
+        id = self.kwargs.get("id")
+        return get_object_or_404(OwnerUpdate, id=id)
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('updates:update-detail')

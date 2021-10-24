@@ -11,4 +11,4 @@ class OwnerUpdate(models.Model):
         return "Update " + self.id
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('updates:update-detail', kwargs={"id": self.id})

@@ -1,1 +1,13 @@
-<h1>Update Details of...</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<strong>Update: </strong>{{ object.update_title }}<br><br>
+<strong>Details:</strong><br>
+{{ object.content }}<br><br>
+
+{% if object.update_type %}
+  <strong>Update Type:</strong> Regular<br><br>
+{% endif %}
+
+{% endblock %}
