@@ -1,5 +1,5 @@
-from django.forms.widgets import RadioSelect
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 from .models import DimSumItem
 from .forms import AddItemForm, RawItemForm
 
@@ -54,7 +54,13 @@ def render_initial_data(request):
 
 
 def dimsum_lookup_view(request, id):
-    obj = DimSumItem.objects.get(id=id)
+    # obj = DimSumItem.objects.get(id=id)
+    # obj = get_object_or_404(DimSumItem, id=id)
+    try:
+        obj = DimSumItem.objects.get(id=id)
+    except DimSumItem.DoesNotExist:
+        raise Http404
+        
     context = {
         "object": obj
     }
