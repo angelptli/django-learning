@@ -8,12 +8,12 @@ def home_view(request, *args, **kwargs):
 
 
 def contact_view(request, *args, **kwargs):
-    return HttpResponse(request, "contact.html", {})
+    return render(request, "contact.html", {})
 
 
 def items_view(request, *args, **kwargs):
-    return HttpResponse(request, "items.html", {})
+    return render(request, "items.html", {})
 
 
 def contribute_view(request, *args, **kwargs):
-    return HttpResponse(request, "contribute.html", {})
+    return render(request, "contribute.html", {})
