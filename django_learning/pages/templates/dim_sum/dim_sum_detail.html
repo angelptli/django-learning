@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Dim Sum Collection</h1>
+
+{% for item in items %}
+  {{ item.item_name }}:<br>
+
+  Description: 
+  {% if item.description %}
+    {{ item.description }}
+  {% else %}
+    No description available.
+  {% endif %}
+  <br>
+  Price: {{ item.normal_price }}
+  <br>
+  History: 
+  {% if item.history %}
+    {{ item.history }}
+  {% else %}
+    No history available.
+  {% endif %}
+  <br><br>
+{% endfor %}
+{% endblock %}

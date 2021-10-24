@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, contact_view, items_view, contribute_view
+from dim_sum.views import dimsum_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +24,5 @@ urlpatterns = [
     path('contact/', contact_view, name='contact_view'),
     path('dimsum/', items_view, name='items_view'),
     path('contribute/', contribute_view, name='contribute_view'),
-    
+    path('detail/', dimsum_detail_view, name="dimsum_detail_view")
 ]
