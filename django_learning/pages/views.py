@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from dim_sum.models import DimSumItem
 
 def home_view(request, *args, **kwargs):
     # renders the request being made and specify the home template
@@ -12,10 +12,9 @@ def contact_view(request, *args, **kwargs):
 
 
 def items_view(request, *args, **kwargs):
-    my_context = {
-        "dimsum_list": ["shumai", "sonton"]
-    }
-    return render(request, "items.html", my_context)
+    queryset = DimSumItem.objects.all()
+
+    return render(request, "items.html", {'queryset': queryset})
 
 
 def contribute_view(request, *args, **kwargs):

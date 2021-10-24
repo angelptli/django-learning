@@ -9,3 +9,6 @@ class DimSumItem(models.Model):
 
     def __str__(self):
         return str.title(self.item_name)
+
+    def get_absolute_url(self):
+        return f"/dimsum/{self.id}/"

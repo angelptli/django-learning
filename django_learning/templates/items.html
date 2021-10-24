@@ -2,8 +2,9 @@
 
 {% block content %}
 <h1>Dim Sum Collection</h1>
-{% for item in dimsum_list %}
-  {{ item }}<br>
+{% for item in queryset %}
+  <!-- <a href="{{ instance.get_absolute_url }}">{{ item.item_name }}</a> -->
+  {{ item.item_name }}<br>
 {% endfor %}
 
 {% endblock %}
