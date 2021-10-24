@@ -8,7 +8,21 @@ from django.views.generic import (
     ListView,
     DeleteView
 )
+from .forms import UpdateCreateForm
 from .models import OwnerUpdate
+
+
+class UpdateCreateView(CreateView):
+
+    """Display a list of updates."""
+
+    template_name = 'updates/ownerupdate_create.html'
+    form_class = UpdateCreateForm
+    queryset = OwnerUpdate.objects.all()
+
+    def form_valid(self, form):
+        # print(form.cleaned_data)
+        return super().form_valid(form)
 
 
 class UpdateListView(ListView):

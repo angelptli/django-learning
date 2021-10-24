@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from . views import (
+    UpdateCreateView,
     UpdateListView,
     UpdateDetailView
 )
@@ -23,5 +24,6 @@ app_name = 'updates'
 
 urlpatterns = [
     path('', UpdateListView.as_view(), name='update-list'),
+    path('create', UpdateCreateView.as_view(), name='update-create'),
     path('<int:id>', UpdateDetailView.as_view(), name='update-detail'),
 ]
