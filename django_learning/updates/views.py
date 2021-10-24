@@ -12,5 +12,22 @@ from .models import OwnerUpdate
 
 
 class UpdateListView(ListView):
+
+    """Display a list of updates."""
+
     template_name = 'updates/ownerupdate_list.html'
     queryset = OwnerUpdate.objects.all()
+
+
+class UpdateDetailView(DetailView):
+
+    """Show the details of the each update."""
+
+    template_name = 'updates/ownerupdate_detail.html'
+    queryset = OwnerUpdate.objects.all()
+
+    def get_object(self):
+        """Override keyword argument to change the url to id. The default
+        keyword for this view is pk."""
+        id = self.kwargs.get("id")
+        return get_object_or_404(OwnerUpdate, id=id)
