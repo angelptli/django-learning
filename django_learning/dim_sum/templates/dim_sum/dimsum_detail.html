@@ -4,16 +4,15 @@
 <h1>Dim Sum Collection</h1>
 
 {% for item in queryset %}
-  {{ item.item_name }}:<br>
+  <strong>{{ item.item_name }}:</strong><br>
 
-  Description: 
   {% if item.description %}
     {{ item.description }}
   {% else %}
     No description available.
   {% endif %}
   <br>
-  Price: {{ item.normal_price }}
+  Average Price: ${{ item.normal_price }}
   <br>
   History: 
   {% if item.history %}
