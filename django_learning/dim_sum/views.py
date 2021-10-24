@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import DimSumItem
 from .forms import AddItemForm, RawItemForm
 
@@ -60,7 +60,22 @@ def dimsum_lookup_view(request, id):
         obj = DimSumItem.objects.get(id=id)
     except DimSumItem.DoesNotExist:
         raise Http404
-        
+
+    context = {
+        "object": obj
+    }
+
+    return render(request, "dim_sum/dimsum_lookup.html", context)
+
+
+def item_delete_view(request, id):
+    obj = get_object_or_404(DimSumItem, id=id)
+
+    if request.method == "POST":
+        # Allow user to confirm a delete
+        obj.delete()
+        return redirect('home')
+
     context = {
         "object": obj
     }
