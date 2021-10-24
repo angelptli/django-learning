@@ -2,18 +2,18 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-def home_view(*args, **kwargs):
-    # request.user requests and identifies the user
-    return HttpResponse("<h1>Welcome!</h1>")
+def home_view(request, *args, **kwargs):
+    # renders the request being made and specify the home template
+    return render(request, "home.html", {})
 
 
-def contact_view(*args, **kwargs):
-    return HttpResponse("<h1>Contact Us</h1>")
+def contact_view(request, *args, **kwargs):
+    return HttpResponse(request, "contact.html", {})
 
 
-def items_view(*args, **kwargs):
-    return HttpResponse("<h1>Dim Sum</h1>")
+def items_view(request, *args, **kwargs):
+    return HttpResponse(request, "items.html", {})
 
 
-def contribute_view(*args, **kwargs):
-    return HttpResponse("<h1>Contribute to our dim sum collection</h1>")
+def contribute_view(request, *args, **kwargs):
+    return HttpResponse(request, "contribute.html", {})
