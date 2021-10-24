@@ -1,3 +1,10 @@
 <h1>Owner Updates</h1>
 
-No updates from the website owner at the moment...
+{% if object_list %}
+  {% for update in object_list %}
+    {{ update.update_title }}
+    <br>
+  {% endfor %}
+{% else %}
+  No updates from the website owner at the moment...
+{% endif %}

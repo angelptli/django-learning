@@ -32,6 +32,16 @@ class UpdateListView(ListView):
     template_name = 'updates/ownerupdate_list.html'
     queryset = OwnerUpdate.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context = super(UpdateListView, self).get_context_data(**kwargs)
+        object_list = OwnerUpdate.objects.all()
+        context.update({'object_list': object_list})
+
+        return context
+
+    def get_success_url(self):
+        return reverse('updates:update-detail')
+
 
 class UpdateDetailView(DetailView):
 
