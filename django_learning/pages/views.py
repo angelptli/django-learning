@@ -21,6 +21,7 @@ def items_view(request, *args, **kwargs):
 def contribute_view(request, *args, **kwargs):
     my_context = {
         "contributed": "Yes",
-        "num_items": 111
+        "num_items": 111,
+        "contributions": [2, 4, 10, 16, 20, 34]
     }
     return render(request, "contribute.html", my_context)

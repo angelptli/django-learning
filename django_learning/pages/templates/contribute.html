@@ -5,4 +5,10 @@
 
 User: {{ request.user }}
 <p>Contributer: {{ contributed }}</p>
+
+Math<br>
+{% for num in contributions %}
+  {{ forloop.counter }}. {{ num|add:2 }}<br>
+{% endfor %}
+
 {% endblock %}
