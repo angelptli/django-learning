@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dim_sum',
     'pages',
+    'updates',
 ]
 
 MIDDLEWARE = [
